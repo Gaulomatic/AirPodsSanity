@@ -21,6 +21,7 @@
 		F6B9613A28B82762001E1D00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B9613928B82762001E1D00 /* Preview Assets.xcassets */; };
 		F6BCD64428BA781500C56ACE /* airpods-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6BCD64328BA781500C56ACE /* airpods-icon.png */; };
 		F6BCD64628BA782100C56ACE /* airpods-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6BCD64528BA782100C56ACE /* airpods-icon@2x.png */; };
+		F6BCD64928BA8F5100C56ACE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6BCD64B28BA8F5100C56ACE /* Localizable.strings */; };
 		F6F5183B28B84239000552D3 /* AirPodsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5183A28B84239000552D3 /* AirPodsObserver.swift */; };
 		F6F5183D28B84B00000552D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5183C28B84B00000552D3 /* AppDelegate.swift */; };
 		F6F5184328B85EF9000552D3 /* SimplyCoreAudio in Frameworks */ = {isa = PBXBuildFile; productRef = F6F5184228B85EF9000552D3 /* SimplyCoreAudio */; };
@@ -43,6 +44,8 @@
 		F6B9613B28B82762001E1D00 /* AirPods_Sanity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirPods_Sanity.entitlements; sourceTree = "<group>"; };
 		F6BCD64328BA781500C56ACE /* airpods-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airpods-icon.png"; sourceTree = "<group>"; };
 		F6BCD64528BA782100C56ACE /* airpods-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airpods-icon@2x.png"; sourceTree = "<group>"; };
+		F6BCD64A28BA8F5100C56ACE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F6BCD64C28BA8F9900C56ACE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6F5183A28B84239000552D3 /* AirPodsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPodsObserver.swift; sourceTree = "<group>"; };
 		F6F5183C28B84B00000552D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6F5184028B85D23000552D3 /* AirPods-Sanity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirPods-Sanity-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -74,6 +77,7 @@
 		F6B9612628B82761001E1D00 = {
 			isa = PBXGroup;
 			children = (
+				F6BCD64B28BA8F5100C56ACE /* Localizable.strings */,
 				F6B9613128B82761001E1D00 /* AirPods Sanity */,
 				F6B9613028B82761001E1D00 /* Products */,
 			);
@@ -161,6 +165,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 				Base,
 			);
 			mainGroup = F6B9612628B82761001E1D00;
@@ -182,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6BCD64928BA8F5100C56ACE /* Localizable.strings in Resources */,
 				F6BCD64628BA782100C56ACE /* airpods-icon@2x.png in Resources */,
 				F6B9613A28B82762001E1D00 /* Preview Assets.xcassets in Resources */,
 				F6BCD64428BA781500C56ACE /* airpods-icon.png in Resources */,
@@ -213,11 +219,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		F6BCD64B28BA8F5100C56ACE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6BCD64A28BA8F5100C56ACE /* en */,
+				F6BCD64C28BA8F9900C56ACE /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		F6B9613C28B82762001E1D00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -278,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

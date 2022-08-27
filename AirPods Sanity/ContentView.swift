@@ -12,7 +12,7 @@ struct ContentView: View
 {
 	var body: some View
 	{
-		Text("Keep your sanity!")
+		Text("Keep your sanity in check!")
 			.padding()
 	}
 }

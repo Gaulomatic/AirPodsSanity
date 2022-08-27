@@ -38,7 +38,7 @@ class MenuBar
 
 		if let __Button = self._StatusBarItem.button
 		{
-			__Button.toolTip = "AirPods Sanity"
+			__Button.toolTip = NSLocalizedString("MenuBar.ToolTip", comment: "")
 
 			if __Image != nil
 			{
@@ -46,7 +46,7 @@ class MenuBar
 			}
 			else
 			{
-				__Button.title = "AirPods Sanity"
+				__Button.title = NSLocalizedString("MenuBar.ToolTip", comment: "")
 			}
 		}
 	}
@@ -64,10 +64,10 @@ class MenuBar
 		__Menu.addItem(self.CreateShowInDockItem(preferences: self._Preferences))
 
 		__Menu.addItem(NSMenuItem.separator())
-		self.AddItems(menu: __Menu, items: self._InputDeviceItems, label: "Input Devices:")
+		self.AddItems(menu: __Menu, items: self._InputDeviceItems, label: NSLocalizedString("MenuBar.InputDevices", comment: ""))
 
 		__Menu.addItem(NSMenuItem.separator())
-		self.AddItems(menu: __Menu, items: self._OutputDeviceItems, label: "AirPod Devices:")
+		self.AddItems(menu: __Menu, items: self._OutputDeviceItems, label: NSLocalizedString("MenuBar.OutputDevices", comment: ""))
 
 		__Menu.addItem(NSMenuItem.separator())
 		__Menu.addItem(self.CreateQuitApplicationItem())
@@ -79,7 +79,7 @@ class MenuBar
 	{
 		let __MenuItem = NSMenuItem()
 
-		__MenuItem.title = "Show in Dock"
+		__MenuItem.title = NSLocalizedString("MenuBar.ShowInDock", comment: "")
 		__MenuItem.target = self
 		__MenuItem.action = #selector(OnToggleShowInDock(_:))
 
@@ -97,7 +97,10 @@ class MenuBar
 
 	private func CreateQuitApplicationItem() -> NSMenuItem
 	{
-		return NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+		let __QuitLabel = NSLocalizedString("MenuBar.Quit", comment: "")
+		let __QuitShortcut = NSLocalizedString("MenuBar.QuitShortcut", comment: "")
+
+		return NSMenuItem(title: __QuitLabel, action: #selector(NSApplication.terminate(_:)), keyEquivalent: __QuitShortcut)
 	}
 
 	private func CreateInputDeviceItems(simply: SimplyCoreAudio, preferences: Preferences) -> [NSMenuItem]

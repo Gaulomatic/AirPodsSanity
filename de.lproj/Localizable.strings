@@ -1,0 +1,13 @@
+/*
+  Localizable.strings
+  AirPods Sanity
+
+  Created by Tobias Punke on 27.08.22.
+
+*/
+"MenuBar.ToolTip" = "AirPods Sanity";
+"MenuBar.ShowInDock" = "Im Dock anzeigen";
+"MenuBar.InputDevices" = "Eingabegeräte:";
+"MenuBar.OutputDevices" = "Ausgabegeräte:";
+"MenuBar.Quit" = "Beenden";
+"MenuBar.QuitShortcut" = "b";
