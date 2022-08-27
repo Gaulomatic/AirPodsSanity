@@ -5,65 +5,35 @@
 //  Created by Tobias Punke on 26.08.22.
 //
 
-import Foundation
 import AppKit
+import Foundation
+import SimplyCoreAudio
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 {
-    private var statusItem: NSStatusItem!
-    
-    func applicationDidFinishLaunching(_ aNotification: Notification)
-    {
-        //return
-        self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        
-        if let button = statusItem.button
-        {
-            button.title = "AirPods"
-        }
-        
-        setupMenus()
-    }
-    
-    func setupMenus() {
-            // 1
-            let menu = NSMenu()
+	private var _Devices: DevicesObserver!
+	private var _MenuBar: MenuBar!
+	private var _Subscription: IDisposable!
 
-            // 2
-        //  let one = NSMenuItem(title: "One", action: #selector(didTapOne) , keyEquivalent: "1")
-        //  menu.addItem(one)
+	func applicationDidFinishLaunching(_ notification: Notification)
+	{
+		self._MenuBar = MenuBar()
+		self._Devices = DevicesObserver()
+		self._Subscription = self._Devices.InputDevicesChanged.addHandler(target: self, handler: AppDelegate.OnInputDevicesChanged)
 
-        //  let two = NSMenuItem(title: "Two", action: #selector(didTapTwo) , keyEquivalent: "2")
-        // menu.addItem(two)
+		self._MenuBar.CreateMenu()
+	}
 
-        //let three = NSMenuItem(title: "Three", action: #selector(didTapThree) , keyEquivalent: "3")
-        //menu.addItem(three)
+	func applicationWillTerminate(_ notification: Notification)
+	{
+		if self._Subscription != nil
+		{
+			self._Subscription.dispose()
+		}
+	}
 
-            //menu.addItem(NSMenuItem.separator())
-
-            menu.addItem(NSMenuItem(title: "Beenden", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-
-            // 3
-            statusItem.menu = menu
-        }
-    
-    private func changeStatusBarButton(number: Int) {
-            if let button = statusItem.button {
-                
-                    button.title = "AirPods"
-                //button.image = NSImage(systemSymbolName: "\(number).circle", accessibilityDescription: number.description)
-            }
-        }
-
-        @objc func didTapOne() {
-            changeStatusBarButton(number: 1)
-        }
-
-        @objc func didTapTwo() {
-            changeStatusBarButton(number: 2)
-        }
-
-        @objc func didTapThree() {
-            changeStatusBarButton(number: 3)
-        }
+	func OnInputDevicesChanged(data: [AudioDevice])
+	{
+		self._MenuBar.CreateMenu()
+	}
 }
