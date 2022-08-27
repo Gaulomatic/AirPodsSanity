@@ -19,6 +19,8 @@
 		F6B9613528B82761001E1D00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B9613428B82761001E1D00 /* ContentView.swift */; };
 		F6B9613728B82762001E1D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B9613628B82762001E1D00 /* Assets.xcassets */; };
 		F6B9613A28B82762001E1D00 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B9613928B82762001E1D00 /* Preview Assets.xcassets */; };
+		F6BCD64428BA781500C56ACE /* airpods-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F6BCD64328BA781500C56ACE /* airpods-icon.png */; };
+		F6BCD64628BA782100C56ACE /* airpods-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6BCD64528BA782100C56ACE /* airpods-icon@2x.png */; };
 		F6F5183B28B84239000552D3 /* AirPodsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5183A28B84239000552D3 /* AirPodsObserver.swift */; };
 		F6F5183D28B84B00000552D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5183C28B84B00000552D3 /* AppDelegate.swift */; };
 		F6F5184328B85EF9000552D3 /* SimplyCoreAudio in Frameworks */ = {isa = PBXBuildFile; productRef = F6F5184228B85EF9000552D3 /* SimplyCoreAudio */; };
@@ -39,6 +41,8 @@
 		F6B9613628B82762001E1D00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6B9613928B82762001E1D00 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F6B9613B28B82762001E1D00 /* AirPods_Sanity.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirPods_Sanity.entitlements; sourceTree = "<group>"; };
+		F6BCD64328BA781500C56ACE /* airpods-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airpods-icon.png"; sourceTree = "<group>"; };
+		F6BCD64528BA782100C56ACE /* airpods-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airpods-icon@2x.png"; sourceTree = "<group>"; };
 		F6F5183A28B84239000552D3 /* AirPodsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPodsObserver.swift; sourceTree = "<group>"; };
 		F6F5183C28B84B00000552D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6F5184028B85D23000552D3 /* AirPods-Sanity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "AirPods-Sanity-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -87,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				F6F5184028B85D23000552D3 /* AirPods-Sanity-Info.plist */,
+				F6BCD64328BA781500C56ACE /* airpods-icon.png */,
+				F6BCD64528BA782100C56ACE /* airpods-icon@2x.png */,
 				F6F5183C28B84B00000552D3 /* AppDelegate.swift */,
 				F6B9613228B82761001E1D00 /* AirPodsSanityApp.swift */,
 				F6B9613428B82761001E1D00 /* ContentView.swift */,
@@ -176,7 +182,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6BCD64628BA782100C56ACE /* airpods-icon@2x.png in Resources */,
 				F6B9613A28B82762001E1D00 /* Preview Assets.xcassets in Resources */,
+				F6BCD64428BA781500C56ACE /* airpods-icon.png in Resources */,
 				F6B9613728B82762001E1D00 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,39 +16,14 @@ struct AirPodsSanityApp: App
 {
 	@NSApplicationDelegateAdaptor(AppDelegate.self) private var _AppDelegate
 
-	@StateObject private var sca = AirPodsObserver()
-//	@State var currentNumber: String = "1"
+	@StateObject private var _AirPodsObserver = AirPodsObserver()
 
 	var body: some Scene
 	{
 		WindowGroup
 		{
 			ContentView()
-				.environmentObject(sca)
+				.environmentObject(self._AirPodsObserver)
 		}
-//		.commands
-//		{
-//			CommandMenu("My Top Menu")
-//			{
-//				Button("Sub Menu Item") { print("You pressed sub menu.") }
-//				  .keyboardShortcut("S")
-//			}
-//			CommandGroup(replacing: .pasteboard)
-//			{
-//				Button("Cut") { print("Cutting something...") }
-//				  .keyboardShortcut("X")
-//				Button("Copy") { print("Copying something...") }
-//				  .keyboardShortcut("C")
-//				Button("Paste") { print("Pasting something...") }
-//				  .keyboardShortcut("V")
-//				Button("Paste and Match Style") { print("Pasting and Matching something...") }
-//				  .keyboardShortcut("V", modifiers: [.command, .option, .shift])
-//				Button("Delete") { print("Deleting something...") }
-//				  .keyboardShortcut(.delete)
-//				Button("Select All") { print("Selecting something...") }
-//				  .keyboardShortcut("A")
-//
-//			}
-//		}
 	}
 }

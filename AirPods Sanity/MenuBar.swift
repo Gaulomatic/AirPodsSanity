@@ -14,24 +14,41 @@ class MenuBar
 	private var _InputDeviceItems: [NSMenuItem]
 	private var _OutputDeviceItems: [NSMenuItem]
 
-	private let _StatusBarItem: NSStatusItem
+	private var _StatusBarItem: NSStatusItem
 
 	init()
 	{
 		self._SimplyCoreAudio = SimplyCoreAudio()
 		self._Preferences = Preferences.Instance
 
-		self._StatusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-
 		self._InputDeviceItems = []
 		self._OutputDeviceItems = []
 
+		self._StatusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+
+		self.CreateStatusItem()
+		self.ToggleShowInDock()
+	}
+
+	private func CreateStatusItem()
+	{
+		let __Image = NSImage(named: "airpods-icon")
+
+		__Image?.isTemplate = true
+
 		if let __Button = self._StatusBarItem.button
 		{
-			__Button.title = "AirPods"
-		}
+			__Button.toolTip = "AirPods Sanity"
 
-		self.ToggleShowInDock()
+			if __Image != nil
+			{
+				__Button.image = __Image
+			}
+			else
+			{
+				__Button.title = "AirPods Sanity"
+			}
+		}
 	}
 
 	func CreateMenu()
