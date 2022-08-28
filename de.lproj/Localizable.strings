@@ -7,7 +7,7 @@
 */
 "MenuBar.ToolTip" = "AirPods Sanity";
 "MenuBar.ShowInDock" = "Im Dock anzeigen";
-"MenuBar.InputDevices" = "Eingabegeräte:";
-"MenuBar.OutputDevices" = "Ausgabegeräte:";
+"MenuBar.InputDevices" = "Bevorzugtes Eingabegerät:";
+"MenuBar.OutputDevices" = "AirPods-Geräte auswählen:";
 "MenuBar.Quit" = "Beenden";
 "MenuBar.QuitShortcut" = "b";
