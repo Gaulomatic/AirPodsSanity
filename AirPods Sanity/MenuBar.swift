@@ -61,6 +61,9 @@ class MenuBar
 
 		let __Menu = NSMenu()
 
+		__Menu.addItem(self.CreateIsEnabledItem(preferences: self._Preferences))
+
+		__Menu.addItem(NSMenuItem.separator())
 		__Menu.addItem(self.CreateShowInDockItem(preferences: self._Preferences))
 
 		__Menu.addItem(NSMenuItem.separator())
@@ -84,6 +87,26 @@ class MenuBar
 		__MenuItem.action = #selector(OnToggleShowInDock(_:))
 
 		if preferences.ShowInDock
+		{
+			__MenuItem.state = NSControl.StateValue.on
+		}
+		else
+		{
+			__MenuItem.state = NSControl.StateValue.off
+		}
+
+		return __MenuItem
+	}
+
+	private func CreateIsEnabledItem(preferences: Preferences) -> NSMenuItem
+	{
+		let __MenuItem = NSMenuItem()
+
+		__MenuItem.title = NSLocalizedString("MenuBar.IsEnabled", comment: "")
+		__MenuItem.target = self
+		__MenuItem.action = #selector(OnToggleShowInDock(_:))
+
+		if preferences.IsEnabled
 		{
 			__MenuItem.state = NSControl.StateValue.on
 		}
@@ -203,6 +226,25 @@ class MenuBar
 		}
 
 		self.ToggleShowInDock()
+
+		PreferencesLoader.WriteSettings(preferences: __Preferences)
+	}
+
+	@objc private func OnToggleIsEnabled(_ sender: NSMenuItem)
+	{
+		let __Preferences = self._Preferences
+		let __State = sender.state
+
+		if __State == NSControl.StateValue.on
+		{
+			__Preferences.IsEnabled = false
+			sender.state = NSControl.StateValue.off
+		}
+		else if __State == NSControl.StateValue.off
+		{
+			__Preferences.IsEnabled = true
+			sender.state = NSControl.StateValue.on
+		}
 
 		PreferencesLoader.WriteSettings(preferences: __Preferences)
 	}

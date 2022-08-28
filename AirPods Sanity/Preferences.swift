@@ -7,12 +7,14 @@ import Foundation
 class Preferences: Codable
 {
 	var ShowInDock: Bool
+	var IsEnabled: Bool
 	var InputDeviceName: String?
 	var AirPodsDeviceNames: [String]
 
 	init()
 	{
 		self.ShowInDock = false
+		self.IsEnabled = true
 		self.AirPodsDeviceNames = []
 	}
 

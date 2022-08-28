@@ -7,6 +7,7 @@
 */
 "MenuBar.ToolTip" = "AirPods Sanity";
 "MenuBar.ShowInDock" = "Show in Dock";
+"MenuBar.IsEnabled" = "Enable Sanitizer";
 "MenuBar.InputDevices" = "Preferred Input Device:";
 "MenuBar.OutputDevices" = "Which are AirPods?";
 "MenuBar.Quit" = "Quit";
