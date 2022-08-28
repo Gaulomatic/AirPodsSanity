@@ -104,7 +104,7 @@ class MenuBar
 
 		__MenuItem.title = NSLocalizedString("MenuBar.IsEnabled", comment: "")
 		__MenuItem.target = self
-		__MenuItem.action = #selector(OnToggleShowInDock(_:))
+		__MenuItem.action = #selector(OnToggleIsEnabled(_:))
 
 		if preferences.IsEnabled
 		{
