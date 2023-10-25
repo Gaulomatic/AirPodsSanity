@@ -24,6 +24,7 @@ struct AirPodsSanityApp: App
 		{
 			ContentView()
 				.environmentObject(self._AirPodsObserver)
+				.hidden()
 		}
 	}
 }

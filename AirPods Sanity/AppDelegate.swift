@@ -17,11 +17,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 
 	func applicationDidFinishLaunching(_ notification: Notification)
 	{
+		// Hide the window when the application finishes launching
+		if let window = NSApplication.shared.windows.first
+		{
+			window.orderOut(self)
+		}
+
 		self._MenuBar = MenuBar()
 		self._Devices = DevicesObserver()
 		self._Subscription = self._Devices.InputDevicesChanged.addHandler(target: self, handler: AppDelegate.OnInputDevicesChanged)
 
 		self._MenuBar.CreateMenu()
+	}
+
+	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool
+	{
+		false
 	}
 
 	func applicationWillTerminate(_ notification: Notification)
