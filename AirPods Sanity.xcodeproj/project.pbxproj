@@ -153,6 +153,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
+				ORGANIZATIONNAME = "Tobias Punke";
 				TargetAttributes = {
 					F6B9612E28B82761001E1D00 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -356,7 +357,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPods Sanity/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P9YZ8CQSH;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -385,7 +386,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPods Sanity/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P9YZ8CQSH;
 				ENABLE_HARDENED_RUNTIME = YES;
