@@ -6,8 +6,8 @@ import Foundation
 
 class Preferences: Codable
 {
-    var LaunchOnLogin: Bool
-    var ShowInMenuBar: Bool
+	var LaunchOnLogin: Bool
+	var ShowInMenuBar: Bool
 	var ShowInDock: Bool
 	var IsEnabled: Bool
 	var InputDeviceName: String?
@@ -15,8 +15,8 @@ class Preferences: Codable
 
 	init()
 	{
-        self.LaunchOnLogin = false
-        self.ShowInMenuBar = true
+		self.LaunchOnLogin = false
+		self.ShowInMenuBar = true
 		self.ShowInDock = false
 		self.IsEnabled = true
 		self.AirPodsDeviceNames = []

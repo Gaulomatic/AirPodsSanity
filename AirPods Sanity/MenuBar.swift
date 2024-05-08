@@ -28,8 +28,8 @@ class MenuBar
 		self._StatusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
 		self.CreateStatusItem()
-        self.SetShowInMenuBar()
-        self.SetShowInDock()
+		self.SetShowInMenuBar()
+		self.SetShowInDock()
 	}
 
 	private func CreateStatusItem()
@@ -66,8 +66,8 @@ class MenuBar
 		__Menu.addItem(self.CreateIsEnabledItem(preferences: self._Preferences))
 
 		__Menu.addItem(NSMenuItem.separator())
-        __Menu.addItem(self.CreateLaunchOnLoginItem(preferences: self._Preferences))
-        __Menu.addItem(self.CreateShowInMenuBarItem(preferences: self._Preferences))
+		__Menu.addItem(self.CreateLaunchOnLoginItem(preferences: self._Preferences))
+		__Menu.addItem(self.CreateShowInMenuBarItem(preferences: self._Preferences))
 		__Menu.addItem(self.CreateShowInDockItem(preferences: self._Preferences))
 
 		__Menu.addItem(NSMenuItem.separator())
@@ -78,96 +78,96 @@ class MenuBar
 
 		__Menu.addItem(NSMenuItem.separator())
 		__Menu.addItem(self.CreateQuitApplicationItem())
-        
-        self.SetShowInMenuBar()
+		
+		self.SetShowInMenuBar()
 		self._StatusBarItem.menu = __Menu
 	}
-    
-    public var IsVisible: Bool
-    {
-        get
-        {
-            return self._StatusBarItem.isVisible
-        }
-    }
-    
-    public func Show()
-    {
-        self._StatusBarItem.isVisible = true;
-    }
-    
-    public func Hide()
-    {
-        self._StatusBarItem.isVisible = false;
-    }
-    
-    private func SetShowInMenuBar()
-    {
-        self._StatusBarItem.isVisible = self._Preferences.ShowInMenuBar
-    }
-    
-    private func SetLaunchOnLogin()
-    {
-        LaunchAtLogin.isEnabled = self._Preferences.LaunchOnLogin
-    }
-    
-    private func SetShowInDock()
-    {
-        let __Preferences = self._Preferences
+	
+	public var IsVisible: Bool
+	{
+		get
+		{
+			return self._StatusBarItem.isVisible
+		}
+	}
+	
+	public func Show()
+	{
+		self._StatusBarItem.isVisible = true;
+	}
+	
+	public func Hide()
+	{
+		self._StatusBarItem.isVisible = false;
+	}
+	
+	private func SetShowInMenuBar()
+	{
+		self._StatusBarItem.isVisible = self._Preferences.ShowInMenuBar
+	}
+	
+	private func SetLaunchOnLogin()
+	{
+		LaunchAtLogin.isEnabled = self._Preferences.LaunchOnLogin
+	}
+	
+	private func SetShowInDock()
+	{
+		let __Preferences = self._Preferences
 
-        if __Preferences.ShowInDock
-        {
-            // The application is an ordinary app that appears in the Dock and may
-            // have a user interface.
-            NSApp.setActivationPolicy(.regular)
-        }
-        else
-        {
-            // The application does not appear in the Dock and may not create
-            // windows or be activated.
-            NSApp.setActivationPolicy(.prohibited)
-        }
-    }
-    
-    private func CreateLaunchOnLoginItem(preferences: Preferences) -> NSMenuItem
-    {
-        let __MenuItem = NSMenuItem()
+		if __Preferences.ShowInDock
+		{
+			// The application is an ordinary app that appears in the Dock and may
+			// have a user interface.
+			NSApp.setActivationPolicy(.regular)
+		}
+		else
+		{
+			// The application does not appear in the Dock and may not create
+			// windows or be activated.
+			NSApp.setActivationPolicy(.prohibited)
+		}
+	}
+	
+	private func CreateLaunchOnLoginItem(preferences: Preferences) -> NSMenuItem
+	{
+		let __MenuItem = NSMenuItem()
 
-        __MenuItem.title = NSLocalizedString("MenuBar.LaunchOnLogin", comment: "")
-        __MenuItem.target = self
-        __MenuItem.action = #selector(OnToggleLaunchOnLogin(_:))
+		__MenuItem.title = NSLocalizedString("MenuBar.LaunchOnLogin", comment: "")
+		__MenuItem.target = self
+		__MenuItem.action = #selector(OnToggleLaunchOnLogin(_:))
 
-        if preferences.LaunchOnLogin
-        {
-            __MenuItem.state = NSControl.StateValue.on
-        }
-        else
-        {
-            __MenuItem.state = NSControl.StateValue.off
-        }
+		if preferences.LaunchOnLogin
+		{
+			__MenuItem.state = NSControl.StateValue.on
+		}
+		else
+		{
+			__MenuItem.state = NSControl.StateValue.off
+		}
 
-        return __MenuItem
-    }
-    
-    private func CreateShowInMenuBarItem(preferences: Preferences) -> NSMenuItem
-    {
-        let __MenuItem = NSMenuItem()
+		return __MenuItem
+	}
+	
+	private func CreateShowInMenuBarItem(preferences: Preferences) -> NSMenuItem
+	{
+		let __MenuItem = NSMenuItem()
 
-        __MenuItem.title = NSLocalizedString("MenuBar.ShowInMenuBar", comment: "")
-        __MenuItem.target = self
-        __MenuItem.action = #selector(OnToggleShowInMenuBar(_:))
+		__MenuItem.title = NSLocalizedString("MenuBar.ShowInMenuBar", comment: "")
+		__MenuItem.target = self
+		__MenuItem.action = #selector(OnToggleShowInMenuBar(_:))
 
-        if preferences.ShowInMenuBar
-        {
-            __MenuItem.state = NSControl.StateValue.on
-        }
-        else
-        {
-            __MenuItem.state = NSControl.StateValue.off
-        }
+		if preferences.ShowInMenuBar
+		{
+			__MenuItem.state = NSControl.StateValue.on
+		}
+		else
+		{
+			__MenuItem.state = NSControl.StateValue.off
+		}
 
-        return __MenuItem
-    }
+		return __MenuItem
+	}
 
 	private func CreateShowInDockItem(preferences: Preferences) -> NSMenuItem
 	{
@@ -281,48 +281,48 @@ class MenuBar
 			menu.addItem(__MenuItem)
 		}
 	}
-    
-    @objc private func OnToggleLaunchOnLogin(_ sender: NSMenuItem)
-    {
-        let __Preferences = self._Preferences
-        let __State = sender.state
+	
+	@objc private func OnToggleLaunchOnLogin(_ sender: NSMenuItem)
+	{
+		let __Preferences = self._Preferences
+		let __State = sender.state
 
-        if __State == NSControl.StateValue.on
-        {
-            __Preferences.LaunchOnLogin = false
-            sender.state = NSControl.StateValue.off
-        }
-        else if __State == NSControl.StateValue.off
-        {
-            __Preferences.LaunchOnLogin = true
-            sender.state = NSControl.StateValue.on
-        }
+		if __State == NSControl.StateValue.on
+		{
+			__Preferences.LaunchOnLogin = false
+			sender.state = NSControl.StateValue.off
+		}
+		else if __State == NSControl.StateValue.off
+		{
+			__Preferences.LaunchOnLogin = true
+			sender.state = NSControl.StateValue.on
+		}
 
-        self.SetLaunchOnLogin()
+		self.SetLaunchOnLogin()
 
-        PreferencesLoader.WriteSettings(preferences: __Preferences)
-    }
-    
-    @objc private func OnToggleShowInMenuBar(_ sender: NSMenuItem)
-    {
-        let __Preferences = self._Preferences
-        let __State = sender.state
+		PreferencesLoader.WriteSettings(preferences: __Preferences)
+	}
+	
+	@objc private func OnToggleShowInMenuBar(_ sender: NSMenuItem)
+	{
+		let __Preferences = self._Preferences
+		let __State = sender.state
 
-        if __State == NSControl.StateValue.on
-        {
-            __Preferences.ShowInMenuBar = false
-            sender.state = NSControl.StateValue.off
-        }
-        else if __State == NSControl.StateValue.off
-        {
-            __Preferences.ShowInMenuBar = true
-            sender.state = NSControl.StateValue.on
-        }
+		if __State == NSControl.StateValue.on
+		{
+			__Preferences.ShowInMenuBar = false
+			sender.state = NSControl.StateValue.off
+		}
+		else if __State == NSControl.StateValue.off
+		{
+			__Preferences.ShowInMenuBar = true
+			sender.state = NSControl.StateValue.on
+		}
 
-        self.SetShowInMenuBar()
+		self.SetShowInMenuBar()
 
-        PreferencesLoader.WriteSettings(preferences: __Preferences)
-    }
+		PreferencesLoader.WriteSettings(preferences: __Preferences)
+	}
 
 	@objc private func OnToggleShowInDock(_ sender: NSMenuItem)
 	{
