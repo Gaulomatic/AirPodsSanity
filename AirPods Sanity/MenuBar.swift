@@ -101,11 +101,6 @@ class MenuBar
         self._StatusBarItem.isVisible = false;
     }
     
-    public func HideWhenNeccessary()
-    {
-        self.SetShowInMenuBar();
-    }
-    
     private func SetShowInMenuBar()
     {
         self._StatusBarItem.isVisible = self._Preferences.ShowInMenuBar

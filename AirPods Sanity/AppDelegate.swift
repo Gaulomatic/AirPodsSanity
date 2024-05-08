@@ -11,11 +11,18 @@ import SimplyCoreAudio
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
 {
-    private let notificationName = Notification.Name("eu.punke.AirPods-Sanity.AppLaunched")
+    private let NotificationName = Notification.Name("eu.punke.AirPods-Sanity.AppLaunched")
+    
+    private let _Preferences: Preferences
     
 	private var _Devices: DevicesObserver!
 	private var _MenuBar: MenuBar!
 	private var _Subscription: IDisposable!
+    
+    override init()
+    {
+        self._Preferences = Preferences.Instance
+    }
 
 	func applicationDidFinishLaunching(_ notification: Notification)
 	{
@@ -29,10 +36,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
             SetupApplication()
         }
 	}
+    func applicationDidBecomeActive(_ notification: Notification)
+    {
+    }
 
 	func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool
 	{
-		false
+        // https://stackoverflow.com/a/59003304/2239781
+        let __AppleEvent: NSAppleEventDescriptor? = NSAppleEventManager.shared().currentAppleEvent
+        let __SenderName: String = __AppleEvent?.attributeDescriptor(forKeyword: keyAddressAttr)?.stringValue ?? ""
+//        let __SenderPID: Int32? = __AppleEvent?.attributeDescriptor(forKeyword: keySenderPIDAttr)?.int32Value ?? 0
+        
+        if __SenderName != "Dock"
+        {
+            self.PerformSecondLaunchActions()
+        }
+        else if !self._Preferences.ShowInDock
+        {
+            self.PerformSecondLaunchActions()
+        }
+        
+		return false
 	}
 
 	func applicationWillTerminate(_ notification: Notification)
@@ -53,12 +77,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
     
     private func SendLaunchNotification()
     {
-        DistributedNotificationCenter.default().post(name: notificationName, object: nil)
+        DistributedNotificationCenter.default().post(name: NotificationName, object: nil)
     }
     
     private func SetupLaunchNotificationListener()
     {
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(HandleSecondLaunch), name: notificationName, object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(HandleSecondLaunch), name: NotificationName, object: nil)
     }
     
     @objc private func HandleSecondLaunch()
@@ -73,16 +97,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject
             return
         }
         
-        let __ShowInSeconds = 1.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + __ShowInSeconds)
+        self._MenuBar.Show()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
             self._MenuBar.Show()
         }
         
-        let __HideInSeconds = 10.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + __HideInSeconds)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0)
         {
-            self._MenuBar.HideWhenNeccessary()
+            self._MenuBar.Show()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0)
+        {
+            if !self._Preferences.ShowInMenuBar
+            {
+                self._MenuBar.Hide()
+            }
         }
     }
     
