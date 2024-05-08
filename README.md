@@ -1,5 +1,7 @@
 # AirPodsSanity
 
+> Credit: AirPodsSanity is based off [milgra/airpodssoundqualityfixer](https://github.com/milgra/airpodssoundqualityfixer)
+
 Keeps you from loosing your sanity when using AirPods with a Mac.
 
 You ever wondered, why the audio quality of your beloved AirPods can get as bad as talking to people over some wire that was built during the Apollo missions took place in the 60s? Ask no further, you came to the right place!
