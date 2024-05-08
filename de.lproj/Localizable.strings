@@ -6,6 +6,7 @@
 
 */
 "MenuBar.ToolTip" = "AirPods Sanity";
+"MenuBar.LaunchOnLogin" = "Beim Anmelden ausführen";
 "MenuBar.ShowInDock" = "Im Dock anzeigen";
 "MenuBar.IsEnabled" = "Auf bevorzugtes Eingabegerät umschalten";
 "MenuBar.InputDevices" = "Bevorzugtes Eingabegerät:";

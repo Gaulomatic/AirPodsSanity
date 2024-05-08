@@ -15,6 +15,7 @@
 		CC3C77FDBEAD90BF9EFE680A /* PreferencesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C785B6595C413114BCC8A /* PreferencesLoader.swift */; };
 		CC3C7CA3469FFA756A55A8EE /* IInvocable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C7D45D626F1DCBDB0BF5F /* IInvocable.swift */; };
 		CC3C7CDDC79C66F63827F4A6 /* IDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C7D5383B08626365DF7DD /* IDisposable.swift */; };
+		F6B118522BEB93B400B991EF /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F6B118512BEB93B400B991EF /* LaunchAtLogin */; };
 		F6B9613328B82761001E1D00 /* AirPodsSanityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B9613228B82761001E1D00 /* AirPodsSanityApp.swift */; };
 		F6B9613528B82761001E1D00 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B9613428B82761001E1D00 /* ContentView.swift */; };
 		F6B9613728B82762001E1D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6B9613628B82762001E1D00 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B118522BEB93B400B991EF /* LaunchAtLogin in Frameworks */,
 				F6F5184328B85EF9000552D3 /* SimplyCoreAudio in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +141,7 @@
 			name = "AirPods Sanity";
 			packageProductDependencies = (
 				F6F5184228B85EF9000552D3 /* SimplyCoreAudio */,
+				F6B118512BEB93B400B991EF /* LaunchAtLogin */,
 			);
 			productName = "AirPods Sanity";
 			productReference = F6B9612F28B82761001E1D00 /* AirPods Sanity.app */;
@@ -152,7 +155,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = "Tobias Punke";
 				TargetAttributes = {
 					F6B9612E28B82761001E1D00 = {
@@ -173,6 +176,7 @@
 			packageReferences = (
 				F64E7EEC28B8290000B70C49 /* XCRemoteSwiftPackageReference "SimplyCoreAudio" */,
 				F6F5184128B85EF9000552D3 /* XCRemoteSwiftPackageReference "SimplyCoreAudio" */,
+				F6B118502BEB93B400B991EF /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			productRefGroup = F6B9613028B82761001E1D00 /* Products */;
 			projectDirPath = "";
@@ -267,9 +271,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -284,7 +290,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -328,9 +334,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -339,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -358,6 +366,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.3;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPods Sanity/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P9YZ8CQSH;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -387,6 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.3;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"AirPods Sanity/Preview Content\"";
 				DEVELOPMENT_TEAM = 2P9YZ8CQSH;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -438,6 +448,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		F6B118502BEB93B400B991EF /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F6F5184128B85EF9000552D3 /* XCRemoteSwiftPackageReference "SimplyCoreAudio" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rnine/SimplyCoreAudio.git";
@@ -449,6 +467,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F6B118512BEB93B400B991EF /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B118502BEB93B400B991EF /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
+		};
 		F6F5184228B85EF9000552D3 /* SimplyCoreAudio */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F6F5184128B85EF9000552D3 /* XCRemoteSwiftPackageReference "SimplyCoreAudio" */;

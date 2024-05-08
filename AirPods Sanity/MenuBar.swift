@@ -4,6 +4,7 @@
 
 import AppKit
 import Foundation
+import LaunchAtLogin
 import SimplyCoreAudio
 
 class MenuBar
@@ -64,6 +65,7 @@ class MenuBar
 		__Menu.addItem(self.CreateIsEnabledItem(preferences: self._Preferences))
 
 		__Menu.addItem(NSMenuItem.separator())
+        __Menu.addItem(self.CreateLaunchOnLoginItem(preferences: self._Preferences))
 		__Menu.addItem(self.CreateShowInDockItem(preferences: self._Preferences))
 
 		__Menu.addItem(NSMenuItem.separator())
@@ -77,6 +79,26 @@ class MenuBar
 
 		self._StatusBarItem.menu = __Menu
 	}
+    
+    private func CreateLaunchOnLoginItem(preferences: Preferences) -> NSMenuItem
+    {
+        let __MenuItem = NSMenuItem()
+
+        __MenuItem.title = NSLocalizedString("MenuBar.LaunchOnLogin", comment: "")
+        __MenuItem.target = self
+        __MenuItem.action = #selector(OnToggleLaunchOnLogin(_:))
+
+        if preferences.LaunchOnLogin
+        {
+            __MenuItem.state = NSControl.StateValue.on
+        }
+        else
+        {
+            __MenuItem.state = NSControl.StateValue.off
+        }
+
+        return __MenuItem
+    }
 
 	private func CreateShowInDockItem(preferences: Preferences) -> NSMenuItem
 	{
@@ -190,24 +212,50 @@ class MenuBar
 			menu.addItem(__MenuItem)
 		}
 	}
+    
+    private func ToggleLaunchOnLogin()
+    {
+        LaunchAtLogin.isEnabled = self._Preferences.LaunchOnLogin
+    }
+    
+    private func ToggleShowInDock()
+    {
+        let __Preferences = self._Preferences
 
-	private func ToggleShowInDock()
-	{
-		let __Preferences = self._Preferences
+        if __Preferences.ShowInDock
+        {
+            // The application is an ordinary app that appears in the Dock and may
+            // have a user interface.
+            NSApp.setActivationPolicy(.regular)
+        }
+        else
+        {
+            // The application does not appear in the Dock and may not create
+            // windows or be activated.
+            NSApp.setActivationPolicy(.prohibited)
+        }
+    }
+    
+    @objc private func OnToggleLaunchOnLogin(_ sender: NSMenuItem)
+    {
+        let __Preferences = self._Preferences
+        let __State = sender.state
 
-		if __Preferences.ShowInDock
-		{
-			// The application is an ordinary app that appears in the Dock and may
-			// have a user interface.
-			NSApp.setActivationPolicy(.regular)
-		}
-		else
-		{
-			// The application does not appear in the Dock and may not create
-			// windows or be activated.
-			NSApp.setActivationPolicy(.prohibited)
-		}
-	}
+        if __State == NSControl.StateValue.on
+        {
+            __Preferences.LaunchOnLogin = false
+            sender.state = NSControl.StateValue.off
+        }
+        else if __State == NSControl.StateValue.off
+        {
+            __Preferences.LaunchOnLogin = true
+            sender.state = NSControl.StateValue.on
+        }
+
+        self.ToggleLaunchOnLogin()
+
+        PreferencesLoader.WriteSettings(preferences: __Preferences)
+    }
 
 	@objc private func OnToggleShowInDock(_ sender: NSMenuItem)
 	{
