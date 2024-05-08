@@ -1,6 +1,6 @@
 # AirPodsSanity
 
-> Credit: AirPodsSanity is based off [milgra/airpodssoundqualityfixer](https://github.com/milgra/airpodssoundqualityfixer)
+> Credit: AirPodsSanity is inspired by [milgra/airpodssoundqualityfixer](https://github.com/milgra/airpodssoundqualityfixer)
 
 Keeps you from loosing your sanity when using AirPods with a Mac.
 
@@ -16,7 +16,7 @@ What this app does is super-duper simple and trivial: Select a default input dev
 
 ## How it improves your life
 
-So what that means is, you can live your life in pease, harmony and appreciate the rainbows and unicorns - once this app is installed.
+So what that means is, you can live your life in peace, harmony and appreciate the rainbows and unicorns - once this app is installed.
 
 ## What it doesn't do
 
