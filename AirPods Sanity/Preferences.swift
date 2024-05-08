@@ -4,33 +4,135 @@
 
 import Foundation
 
-class Preferences: Codable
+class Preferences
 {
-	var LaunchOnLogin: Bool
-	var ShowInMenuBar: Bool
-	var ShowInDock: Bool
-	var IsEnabled: Bool
-	var InputDeviceName: String?
-	var AirPodsDeviceNames: [String]
+	private static var _Instance: Preferences?
+	private let _PreferencesFile: PreferencesFile
 
-	init()
+	private init()
 	{
-		self.LaunchOnLogin = false
-		self.ShowInMenuBar = true
-		self.ShowInDock = false
-		self.IsEnabled = true
-		self.AirPodsDeviceNames = []
+		self._PreferencesFile = PreferencesLoader.LoadSettings()
 	}
-
-	static private var _Instance: Preferences?
-
+	
 	static var Instance: Preferences
 	{
 		if _Instance == nil
 		{
-			_Instance = PreferencesLoader.LoadSettings()
+			_Instance = Preferences()
 		}
 
 		return _Instance!
+	}
+	
+	public var LaunchOnLogin: Bool
+	{
+		get
+		{
+			if let __UnWrapped = self._PreferencesFile.LaunchOnLogin
+			{
+				return __UnWrapped
+			}
+			else
+			{
+				return false
+			}
+		}
+		set(value)
+		{
+			self._PreferencesFile.LaunchOnLogin = value
+		}
+	}
+	
+	public var ShowInMenuBar: Bool
+	{
+		get
+		{
+			if let __UnWrapped = self._PreferencesFile.ShowInMenuBar
+			{
+				return __UnWrapped
+			}
+			else
+			{
+				return true
+			}
+		}
+		set(value)
+		{
+			self._PreferencesFile.ShowInMenuBar = value
+		}
+	}
+	
+	public var ShowInDock: Bool
+	{
+		get
+		{
+			if let __UnWrapped = self._PreferencesFile.ShowInDock
+			{
+				return __UnWrapped
+			}
+			else
+			{
+				return false
+			}
+		}
+		set(value)
+		{
+			self._PreferencesFile.ShowInDock = value
+		}
+	}
+	
+	public var IsEnabled: Bool
+	{
+		get
+		{
+			if let __UnWrapped = self._PreferencesFile.IsEnabled
+			{
+				return __UnWrapped
+			}
+			else
+			{
+				return true
+			}
+		}
+		set(value)
+		{
+			self._PreferencesFile.IsEnabled = value
+		}
+	}
+	
+	public var InputDeviceName: String?
+	{
+		get
+		{
+			return self._PreferencesFile.InputDeviceName
+		}
+		set(value)
+		{
+			self._PreferencesFile.InputDeviceName = value
+		}
+	}
+	
+	public var AirPodsDeviceNames: [String]
+	{
+		get
+		{
+			if let __UnWrapped = self._PreferencesFile.AirPodsDeviceNames
+			{
+				return __UnWrapped
+			}
+			else
+			{
+				return []
+			}
+		}
+		set(value)
+		{
+			self._PreferencesFile.AirPodsDeviceNames = value
+		}
+	}
+	
+	public func WriteSettings()
+	{
+		PreferencesLoader.WriteSettings(preferences: self._PreferencesFile)
 	}
 }

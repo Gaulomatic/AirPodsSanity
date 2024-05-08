@@ -12,21 +12,21 @@ class PreferencesLoader
 		return __DocumentsPath.appendingPathComponent("settings.plist")
 	}
 
-	static func LoadSettings() -> Preferences
+	static func LoadSettings() -> PreferencesFile
 	{
 		let decoder = PropertyListDecoder()
 
 		guard let __Data = try? Data.init(contentsOf: PlistURL),
-			  let __Preferences = try? decoder.decode(Preferences.self, from: __Data)
+			  let __Preferences = try? decoder.decode(PreferencesFile.self, from: __Data)
 		else
 		{
-			return Preferences()
+			return PreferencesFile()
 		}
 
 		return __Preferences
 	}
 
-	static func WriteSettings(preferences: Preferences)
+	static func WriteSettings(preferences: PreferencesFile)
 	{
 		let __Encoder = PropertyListEncoder()
 

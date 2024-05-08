@@ -300,7 +300,7 @@ class MenuBar
 
 		self.SetLaunchOnLogin()
 
-		PreferencesLoader.WriteSettings(preferences: __Preferences)
+		self._Preferences.WriteSettings()
 	}
 	
 	@objc private func OnToggleShowInMenuBar(_ sender: NSMenuItem)
@@ -320,8 +320,8 @@ class MenuBar
 		}
 
 		self.SetShowInMenuBar()
-
-		PreferencesLoader.WriteSettings(preferences: __Preferences)
+		
+		self._Preferences.WriteSettings()
 	}
 
 	@objc private func OnToggleShowInDock(_ sender: NSMenuItem)
@@ -341,8 +341,8 @@ class MenuBar
 		}
 
 		self.SetShowInDock()
-
-		PreferencesLoader.WriteSettings(preferences: __Preferences)
+		
+		self._Preferences.WriteSettings()
 	}
 
 	@objc private func OnToggleIsEnabled(_ sender: NSMenuItem)
@@ -360,8 +360,8 @@ class MenuBar
 			__Preferences.IsEnabled = true
 			sender.state = NSControl.StateValue.on
 		}
-
-		PreferencesLoader.WriteSettings(preferences: __Preferences)
+		
+		self._Preferences.WriteSettings()
 	}
 
 	@objc private func OnSelectInputDevice(_ sender: NSMenuItem)
@@ -383,8 +383,8 @@ class MenuBar
 			__Preferences.InputDeviceName = sender.title
 			sender.state = NSControl.StateValue.on
 		}
-
-		PreferencesLoader.WriteSettings(preferences: __Preferences)
+		
+		self._Preferences.WriteSettings()
 	}
 
 	@objc private func OnSelectOutputDevice(_ sender: NSMenuItem)
@@ -409,7 +409,7 @@ class MenuBar
 
 			sender.state = NSControl.StateValue.on
 		}
-
-		PreferencesLoader.WriteSettings(preferences: __Preferences)
+		
+		self._Preferences.WriteSettings()
 	}
 }
