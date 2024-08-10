@@ -37,6 +37,7 @@ This piece of software is not cloud-native, has no micro service architecture, d
 #### macOS
 
 - Download the `.dmg` from the release page: [DMG download](https://github.com/Gaulomatic/AirPodsSanity/releases)
+- Run the follwing command in the Terminal or iTerm: `xattr -d com.apple.quarantine "/Applications/AirPods Sanity.app"`
 
 #### Windows
 
