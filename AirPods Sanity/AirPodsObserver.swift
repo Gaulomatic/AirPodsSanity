@@ -51,7 +51,7 @@ private extension AirPodsObserver
 			return
 		}
 
-		guard let __NewInputDeviceName = self._DefaultInputDeviceName != nil ? self._DefaultInputDeviceName : self._Preferences.InputDeviceName else { return }
+		guard let __NewInputDeviceName = self._Preferences.InputDeviceName != nil ? self._Preferences.InputDeviceName : self._DefaultInputDeviceName else { return }
 		guard let __InputDevice = self._Simply.allInputDevices.filter({ $0.name == __NewInputDeviceName }).first else { return }
 
 		if __DefaultInputDevice.id != __InputDevice.id
